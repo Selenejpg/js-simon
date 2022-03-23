@@ -21,7 +21,7 @@ function timer() {
     
     for (let i = 0; i < 5; i++) {
         //Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
-        let risposta = parseInt(prompt("Inserisci ad uno a uno i numeri appena visti"));
+        let risposta = parseInt(prompt("Inserisci i numeri che hai appena visto!"));
 
         console.log(risposta);
         if (arr.includes(risposta)) {
@@ -36,7 +36,7 @@ function timer() {
     console.log(scartati);
     document.getElementById("risultati").innerHTML = `Hai totalizzato ${risultato.length} punti!`;
     document.getElementById("stamp").style.display = "block";
-    document.getElementById('numeriIndovinati').innerHTML = `Congratulazioni! I numeri corretti inseriti sono: ${risultato}`;
+    document.getElementById('numeriIndovinati').innerHTML = `Congratulazioni! I numeri corretti che hai inserito sono: ${risultato}`;
 
 }
 
