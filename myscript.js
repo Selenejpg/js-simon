@@ -1,28 +1,42 @@
- //Da lì parte un timer di 30 secondi.
-//Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
-//Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+let arr = []
+let risultato = [];
+let scartati = [];
 
-//Visualizzare in pagina 5 numeri casuali.
-
-while (i < n) {
-    let arr = []
-
-    //Ognuno formato da 10 numeri casuali da 1 a 99
-    for (let c = 0; c < 5; c++) {
-        let numeroCasuale = Math.floor(Math.random() * 99) +1; 
-        //Ogni volta che ne crei uno, stampalo.
-        arr.push(numeroCasuale)
-    }
-
-    console.log(arr)
-    i++;
+//Numeri casuali da 1 a 99
+for (let c = 0; c < 5; c++) {
+    let numeroCasuale = Math.floor(Math.random() * 99) +1; 
+    //Ogni volta che ne crei uno, stampalo.
+    arr.push(numeroCasuale)
     
 }
+document.getElementById("stamp").innerHTML = arr
 
-setTimeout(timer, 30000);
+console.log(arr)
+
+//Da la parte un timer di 30 secondi.
+setTimeout(timer, 300);
 
 function timer() {
+    document.getElementById("stamp").style.display = "none";
+    
     for (let i = 0; i < 5; i++) {
-        let risposta = prompt("Inserisci ad uno a uno i numeri appena visti")
+        //Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
+        let risposta = parseInt(prompt("Inserisci ad uno a uno i numeri appena visti"));
+
+        console.log(risposta);
+        if (arr.includes(risposta)) {
+            risultato.push(risposta);
+        } else {
+            scartati.push(risposta);
+            
+        }
+  
     }
+
+    console.log(scartati);
+    document.getElementById("risultati").innerHTML = `Hai totalizzato ${risultato.length} punti!`;
+    document.getElementById("stamp").style.display = "block";
+    document.getElementById('numeriIndovinati').innerHTML = `Congratulazioni! I numeri corretti inseriti sono: ${risultato}`;
+
 }
+
