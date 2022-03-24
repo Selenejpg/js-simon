@@ -14,10 +14,16 @@ document.getElementById("stamp").innerHTML = arr
 console.log(arr)
 
 //Da la parte un timer di 30 secondi.
-setTimeout(timer, 300);
+setTimeout(timer, 29000);
+setTimeout(timer2, 30000);
 
 function timer() {
     document.getElementById("stamp").style.display = "none";
+}
+
+
+function timer2() {
+    
     
     for (let i = 0; i < 5; i++) {
         //Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
